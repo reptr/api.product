@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-// akan mereference kepada table Product
+// reference in table Product
 class Product extends Model
 {
     use HasFactory;
 
-    // meneymbunyikan tabel agar tidak terlihat saat hit endpoint API
+    // hide data for not visible if HIT endpoint API
     protected $hidden = [
         'updated_at',
         'created_at'
