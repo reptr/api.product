@@ -57,13 +57,20 @@ class ProductController extends Controller
      */
     function getById($id)
     {
-        $product = Product::where('id', $id)->get(); //get product by id product
+        $product = Product::where('id', $id)->first(); //get product by id product
 
-        // return json
+        if ($product) {
+            // return json
+            return response()->json([
+                "message" => "Success",
+                "data" => $product
+            ]);
+        }
+
+        // if search not found, return json
         return response()->json([
-            "message" => "Success",
-            "data" => $product
-        ]);
+            "message" => "Product with id " . $id . " not found"
+        ], 400);
     }
 
     /**
